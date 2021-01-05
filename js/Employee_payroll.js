@@ -20,7 +20,7 @@ class EmployeePayrollData {
     }
 
     get gender(){ return this._gender;}
-    set gender(gender){this._gender - gender;}
+    set gender(gender){this._gender = gender;}
 
     get department(){ return this._department;}
     set department(department){
