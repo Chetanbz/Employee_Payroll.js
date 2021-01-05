@@ -8,7 +8,7 @@ class EmployeePayrollData {
 
     get name(){return this._name;}
     set name(name){
-        let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{,}$');
+        let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
         if (nameRegex.test(name))
               this._name = name;
         else throw 'Name is Incorrect!';
@@ -59,13 +59,3 @@ class EmployeePayrollData {
 // let employeePayrollData2 = new EmployeePayrollData(2,"Terissa",60000,"F", new Date());
 // console.log(employeePayrollData2.toString());
 
-let count =0;
-function save(){
-    count++;
-    this.id = count
-    this.name = document.querySelector('#name');
-    this.salary = document.querySelector('#name');
-    this.gender = document.querySelector('#gender');
-    this.startDate=document.querySelector('#startDate');
-    toString();
-}
