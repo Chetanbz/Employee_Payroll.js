@@ -1,6 +1,6 @@
-let empPayrollList = createEmployeePayrollJASON();
+let empPayrollList ;
 window.addEventListener('DOMContentLoaded',(event)=>{
-  
+  empPayrollList = getEmployeePayrollDataFromStorages();
   document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
     localStorage.removeItem('editEmp');
