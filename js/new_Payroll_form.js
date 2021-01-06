@@ -1,4 +1,8 @@
 window.addEventListener('DOMContentLoaded',(event)=>{
+    events();
+})
+
+function events(){
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error');
     name.addEventListener('input',function(){
@@ -14,10 +18,6 @@ window.addEventListener('DOMContentLoaded',(event)=>{
         }
     })
 
-    salaryEvent();
-})
-
-function salaryEvent(){
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output');
     output.textContent = salary.value;
@@ -93,7 +93,7 @@ const resetForm=()=> {
     unsetSelectedValues('[name=gender]');
     unsetSelectedValues('[name=department]');
     setValue('#salary','');
-    salaryEvent();
+    events();
     setTextValue('#notes','');
     setValue('#day','1');
     setValue('#month','January');
