@@ -24,7 +24,7 @@ const createInnerHtml= () => {
                 <td>${empPayrollData._gender}</td>
                 <td>${getDepHtml(empPayrollData._department)}</div>
                 <td>${empPayrollData._salary}</td>
-                <td>${empPayrollData._startDate}</td>
+                <td>${stringify(empPayrollData._startDate)}</td>
                 <td>
                     <img name="${empPayrollData._id}" onclick="remove(this)" alt="delete"
                         src="../assests/icons/delete-black-18dp.svg">
@@ -43,6 +43,12 @@ const getDepHtml = (deptList) => {
     deptHtml = `${deptHtml} <div class="dept-label">${dept}</div>`
   }
   return deptHtml;
+}
+
+const getDateHtml = (startDate) =>{
+  const options = {year : 'numeric' , month: 'long', day: 'numeric'};
+  const empdate = !this.startDate ? "undefined": this.startDate.toLocaleDateString("en-US",options);
+  return empdate;
 }
 
 createEmployeePayrollJASON= () => {
