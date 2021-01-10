@@ -152,7 +152,7 @@ const setTextValue = (id,value) => {
 
 
  const checkForUpdate =()=>{
-     const employeePayrollJson = localStorage.getItem('editItem');
+     const employeePayrollJson = localStorage.getItem('editEmp');
      isUpdate = employeePayrollJson ? true : false;
      if (!isUpdate) return;
      employeePayrollObj  = JSON.parse(employeePayrollJson);

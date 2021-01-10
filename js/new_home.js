@@ -28,9 +28,9 @@ const createInnerHtml= () => {
                 <td>${empPayrollData._salary}</td>
                 <td>${stringify(empPayrollData._startDate)}</td>
                 <td>
-                    <img name="${empPayrollData.id}" onclick="remove(this)" alt="delete"
+                    <img id="${empPayrollData.id}" onclick="remove(this)" alt="delete"
                         src="../assests/icons/delete-black-18dp.svg">
-                    <img name="${empPayrollData.id}"  onclick="update(this)" alt="edit"
+                    <img id="${empPayrollData.id}"  onclick="update(this)" alt="edit"
                         src="../assests/icons/create-black-18dp.svg">
                 </td>
             </tr>
@@ -56,7 +56,7 @@ const getDateHtml = (startDate) =>{
 const remove = (node) =>{
   let employeeData = empPayrollList.find(empData => empData.id == node.id);
   console.log(node.id);
-  console.log(empData.id);
+  console.log(employeeData.id);
   if(!employeeData) return;
   let index = empPayrollList.indexOf(employeeData);
   empPayrollList.splice(index,1);
@@ -66,8 +66,8 @@ const remove = (node) =>{
 
 
 const update =(node) =>{
-  let empPayrollData = empPayrollList.find(empData => empData.id)
+  let empPayrollData = empPayrollList.find(empData => empData.id== node.id)
   if (!empPayrollData) return;
-  localStorage.setItem("editItem",JSON.stringify(empPayrollData))
+  localStorage.setItem("editEmp",JSON.stringify(empPayrollData))
   window.location.replace(site_properties.add_emp_payroll_page);
 }
