@@ -32,8 +32,7 @@ function events(){
 
 const save=() =>{
     try{
-        let employeePayrollData = createEmployeePayroll();
-        createAndUpdateStorage(employeePayrollData);
+        createAndUpdateStorage();
     }catch(e){
         return;
     }
@@ -60,7 +59,11 @@ const createEmployeePayroll=() =>{
     return employeePayrollData;
 }
 
-function createAndUpdateStorage(employeePayrollData){
+function createAndUpdateStorage(){
+    let employeePayrollData ;
+    if (employeePayrollObj){
+        employeePayrollData = createEmployeePayroll();
+    }
     let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
 
     if(employeePayrollList != undefined){
