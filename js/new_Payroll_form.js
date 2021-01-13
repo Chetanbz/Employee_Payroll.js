@@ -1,5 +1,6 @@
 let isUpdate =false;
 let employeePayrollObj ={};
+let  employeePayrollList;
 
 window.addEventListener('DOMContentLoaded',(event)=>{
     events();
@@ -61,19 +62,23 @@ const createEmployeePayroll=() =>{
 
 function createAndUpdateStorage(){
     let employeePayrollData ;
-    if (employeePayrollObj){
-        employeePayrollData = createEmployeePayroll();
+    employeePayrollData = createEmployeePayroll();
+    employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    let index =employeePayrollObj.id;
+    console.log(index);
+    if(index){
+        employeePayrollList.splice(index,1,employeePayrollData);
     }
-    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
-
-    if(employeePayrollList != undefined){
+    else if(employeePayrollList != undefined){
         employeePayrollList.push(employeePayrollData);
     }
     else{
         employeePayrollList = [employeePayrollData];
     }
+    
     alert(employeePayrollList.toString());
     localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList))
+    window.location.replace("../Pages/new_payroll_home.html");
 }
 
 const getSelectedValues = (propertyValue) =>{
